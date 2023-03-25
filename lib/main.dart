@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/home_page.dart';
+import 'package:flutter_catalog/pages/home_page.dart';
+import 'package:flutter_catalog/pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,11 +19,31 @@ class MyApp extends StatelessWidget {
   // final nameOfPerson = "Subodh";
 
   // Difference between final and const is that if we have a list with final and const then we cannot change the list with the const keyword but we can change the value which is with the final keyword.
+  // If we define something inside of a class then we call it a method otherwise we call it a function
 
   @override
   Widget build(BuildContext context) {
+    // bringVegetables(thaila: true, rupees: 50);
     return MaterialApp(
-      home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
+      darkTheme: ThemeData(
+        // brightness: Brightness.dark,
+        primarySwatch: Colors.red,
+      ),
+      initialRoute: "/home",
+      routes: {
+        "/": (content) => LoginPage(),
+        "/home": (content) => HomePage(),
+        "/login": (content) => LoginPage(),
+      },
     );
   }
+
+  // bringVegetables({required bool thaila, int rupees = 100}) {
+  //   // take cycle
+  //   // Go to main bazaaar
+  // }
 }
